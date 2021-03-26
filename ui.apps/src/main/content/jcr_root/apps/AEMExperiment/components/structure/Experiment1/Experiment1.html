@@ -1,0 +1,12 @@
+<h1>hello this Experiment component.</h1>
+<sly data-sly-test.pathExists="${properties.name}">
+    <pre data-sly-use.nameObject="com.mindtree.capability.core.models.GetFilePath">
+        this is the name: ${nameObject.getFormatedPath}
+        ${properties.name}
+    </pre>
+</sly>
+<sly data-sly-test="${!pathExists}">
+    <pre>
+      <p style="color:red;"> please enter the file.</p>
+    </pre>
+</sly>

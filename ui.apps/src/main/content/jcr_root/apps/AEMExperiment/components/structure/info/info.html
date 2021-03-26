@@ -1,0 +1,58 @@
+
+
+<div><h1>testing all sly elements here</h1></div>
+<hr>
+
+<!--/* this is the data-sly-test example */-->
+<div style="border: 2px solid red; padding: 5px;">
+
+	<div> <h3>Using data-sly-test</h3></div>
+
+   	<div data-sly-test.editor="${properties.title}">
+    	Tile is : ${properties.title}
+    </div>
+    <div data-sly-test="${!editor}">
+    	There is no title present in dialog, please enter the title.
+    </div>
+</div>
+
+<hr>
+
+<!--/*this is the data-sly-include example */-->
+<div style="border: 2px solid blue; padding: 5px;">
+    <div> <h3>Using data-sly-include</h3></div>
+	<sly data-sly-include="testing.html"/>
+</div>
+
+<hr>
+
+<!--/*this is the data-sly-Repeat example */-->
+<div style="border:2px solid gold; padding: 5px;">
+       <div> <h3>Using data-sly-Repeat</h3></div>
+	<div data-sly-repeat="${currentPage.listChildren}">${item.name}</div>
+</div>
+<hr>
+<!--/*this is the data-sly-List example */-->
+<div style="border:2px solid black; padding: 5px;">
+       <div> <h3>Using data-sly-List</h3></div>
+	<dl data-sly-list="${currentPage.listChildren}">
+		<dt>index: ${itemList.index}</dt>
+		<dd>value: ${item.title}</dd>
+	</dl>
+</div>
+<hr>
+
+<!--/*this is the data-sly-text example */-->
+<div style="border:2px solid yellow; padding: 5px;">
+            <p>${properties.title}</p>
+            <p data-sly-text="${properties.title}">some data</p>
+</div>
+
+<hr>
+
+<!--/*this is the data-sly-text example */-->
+<div style="border:2px solid pink; padding: 5px;">
+            <div title="${properties.jcr:title}"></div>
+	<div title="Lorem Ipsum" data-sly-attribute.title="${properties.jcr:title}"></div>
+
+</div>

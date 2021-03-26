@@ -1,0 +1,42 @@
+<head>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+
+<script>
+    alert("in the Script tag");
+    $(document).ready(function(){
+      $("button").click(function(){
+        alert("The button was clicked.");
+            $.ajax({     
+            	type : "POST",     
+                url : '/bin/AEMExperiment/dataServlet',     
+                /*data : {         
+                pass your request parameter here, currently we are not passing any data     
+                },*/     
+                success : function(data, textStatus, jqXHR) {         
+                //write your logic that you need to perform on sucess
+                    $("#demo").text(data);
+                },     
+                error : function(XMLHttpRequest, textStatus, errorThrown) {         
+                //write your logic that you need to perform on error  
+        			$("#demo").text("some Error is there");
+                } 
+              });
+     	 });
+    });
+</script>
+</head>
+<body>
+
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Will display all product names:</h1>
+		<button type="button" class="btn btn-outline-primary">Product Data</button>
+		<div>
+        	<h3 id="demo" style="text-align: center;"></h3>
+        </div>
+	</div>
+</body>
